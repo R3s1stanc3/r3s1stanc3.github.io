@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+  <div class="card-content">
+    <h2 class="title">Tags</h2>
+    <div class="content">
+      <table class="table is-striped is-hoverable">
+        <thead>
+          <tr>
+            <th class="content-column">Tag</th>
+            <th><abbr title="Number of articles ({{ terms | length }} in total)">#</abbr></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for tag in terms %}
+          <tr>
+            <td>
+              <a href="{{ get_taxonomy_url(kind="tags", name=tag.name) }}">
+                {{ tag.name }}
+              </a>
+            </td>
+            <td>
+              {{ tag.pages | length }}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock content %}

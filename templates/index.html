@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+
+{% block extra_head %}
+<link rel="canonical" href="{{ config.base_url }}">
+
+<meta property="og:title" content="{{ config.title }}" />
+<meta property="og:description" content="{{ config.description }}" />
+<meta property="og:url" content="{{ config.base_url }}" />
+<meta property="og:site_name" content="{{ config.title }}" />
+<meta property="og:locale" content="en_US" />
+
+<meta name="description" content="{{ config.description }}">
+{% endblock extra_head %}
+
+{% block content %}
+{% if section.title %}
+<h2 class="subtitle">{{ section.title }}</h2>
+{% endif %}
+<ul>
+  {% for page in paginator.pages %}
+  <li class="mb-4">
+    <div class="card">
+      <div class="card-content">
+        {{ macros::page_title(page = page) }}
+        {% if page.summary %}
+        <div class="mb-2">
+          <div id="content" class="content page-body">
+            {{ page.summary | safe }}
+          </div>
+          <!-- <a class="button" href="{{ page.permalink }}#continue-reading">Continue Reading</a> -->
+        </div>
+        {% endif %}
+        {{ macros::page_footer(page = page) }}
+      </div>
+    </div>
+  </li>
+  {% endfor %}
+
+  <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+    {% if paginator.next %}
+    <a class="pagination-previous" href="{{ paginator.next }}">Older posts</a>
+    {% endif %}
+    {% if paginator.previous %}
+    <a class="pagination-next" href="{{ paginator.previous }}">Newer posts</a>
+    {% endif %}
+    {% if paginator.number_pagers > 1 %}
+    <ul class="pagination-list">
+      Page {{ paginator.current_index }} of {{ paginator.number_pagers }}
+    </ul>
+    {% endif %}
+  </nav>
+</ul>
+{% endblock page %}
