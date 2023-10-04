@@ -1,0 +1,43 @@
+/* @media (prefers-color-scheme: dark) { */
+/*   html { */
+/*     filter: invert(1) hue-rotate(180deg); */
+/*   } */
+
+/*   /1* pre > code > * { *1/ */
+/*   /1*   filter: invert(1) hue-rotate(180deg); *1/ */
+/*   /1* } *1/ */
+
+/*   /1* html img, *1/ */
+/*   /1* picture, *1/ */
+/*   /1* video{ *1/ */
+/*   /1*   filter: invert(1) hue-rotate(180deg); *1/ */
+/*   /1* } *1/ */
+/* } */
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  /* font-family: 'Ubuntu', sans-serif; */
+}
+
+#wrapper {
+  flex: 1;
+}
+
+#content {
+  text-align: justify;
+  hyphens: auto;
+}
+
+.content-column {
+  width: 100%;
+}
+
+.page-body {
+  line-height: 2;
+}
+
+.page-body > * {
+  margin-top: 2em;
+}

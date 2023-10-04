@@ -1,0 +1,53 @@
+{% macro rfc3339_date(date) %}{{ date | date(format = "%Y-%m-%dT%H:%M:%S%z") }}{% endmacro rfc3339_date %}
+
+{% macro page_title(page) %}
+<div class="mb-4">
+  <h1 class="title">
+    {% if page.permalink == current_url %}
+    {{ page.title }}
+    {% else %}
+    <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+    {% endif %}
+  </h1>
+  {% if page.description %}
+  <h2 class="subtitle">{{ page.description }}</h2>
+  {% endif %}
+  <div class="tags">
+    <span class="tag">
+      <img src="{{ get_url(path = 'clock.svg', cachebust = true) }}" />
+      <span>&ensp;{{ page.reading_time }} minute{{ page.reading_time | pluralize }}</span>
+    </span>
+    {% if page.date %}
+
+    <span class="tag">
+      <img src="{{ get_url(path = 'pencil.svg', cachebust = true) }}" />
+      <time datetime="{{ self::rfc3339_date(date=page.date) }}">&ensp;{{ page.date | date(format="%F") }}</time>
+      {% if page.updated %}
+      (Updated: <time datetime="{{ self::rfc3339_date(date=page.updated) }}">{{ page.updated | date(format="%F") }}</time>)
+      {% endif %}
+      {% endif %}
+    </span>
+  </div>
+</div>
+{% endmacro page_title %}
+
+{% macro page_footer(page) %}
+{% if page.taxonomies.tags %}
+<footer class="card-footer">
+  <small>
+    Tags:
+    <div class="field is-grouped is-grouped-multiline">
+      <div class="tags">
+        {% for tag in page.taxonomies.tags %}
+        <span class="tag">
+          <a href="{{ get_taxonomy_url(kind="tags", name=tag) }}">
+            {{ tag }}
+          </a>
+        </span>
+        {% endfor %}
+      </div>
+    </div>
+  </small>
+</footer>
+{% endif %}
+{% endmacro page_footer %}

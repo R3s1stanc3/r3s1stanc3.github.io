@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+// light grey background
+$scheme-main: #f5f5f5f5;
+$scheme-main-bis: $scheme-main;
+// $link: hsl(204, 86%, 53%);
+// $link: #FA7C91;
+$link: #8A4D76;
+
+// trial and error and https://gist.github.com/kdzwinel/426a0f76f113643fa285 to find all required modules
+
+// @import "../misc/bulma/bulma.sass";
+
+// @import "../misc/bulma/sass/base/_all.sass";
+// @import "../misc/bulma/sass/base/animations.sass";
+@import "../misc/bulma/sass/base/generic.sass";
+// @import "../misc/bulma/sass/base/helpers.sass";
+@import "../misc/bulma/sass/base/minireset.sass";
+
+// @import "../misc/bulma/sass/components/_all.sass";
+// @import "../misc/bulma/sass/components/breadcrumb.sass";
+@import "../misc/bulma/sass/components/card.sass";
+// @import "../misc/bulma/sass/components/dropdown.sass";
+// @import "../misc/bulma/sass/components/level.sass";
+// @import "../misc/bulma/sass/components/media.sass";
+// @import "../misc/bulma/sass/components/menu.sass";
+// @import "../misc/bulma/sass/components/message.sass";
+// @import "../misc/bulma/sass/components/modal.sass";
+@import "../misc/bulma/sass/components/navbar.sass";
+@import "../misc/bulma/sass/components/pagination.sass";
+// @import "../misc/bulma/sass/components/panel.sass";
+// @import "../misc/bulma/sass/components/tabs.sass";
+
+// @import "../misc/bulma/sass/elements/_all.sass";
+// @import "../misc/bulma/sass/elements/box.sass";
+// @import "../misc/bulma/sass/elements/button.sass";
+// @import "../misc/bulma/sass/elements/container.sass";
+@import "../misc/bulma/sass/elements/content.sass";
+// @import "../misc/bulma/sass/elements/form.sass";
+// @import "../misc/bulma/sass/elements/icon.sass";
+// @import "../misc/bulma/sass/elements/image.sass";
+// @import "../misc/bulma/sass/elements/notification.sass";
+// @import "../misc/bulma/sass/elements/other.sass";
+// @import "../misc/bulma/sass/elements/progress.sass";
+// @import "../misc/bulma/sass/elements/table.sass";
+@import "../misc/bulma/sass/elements/tag.sass";
+@import "../misc/bulma/sass/elements/title.sass";
+
+// @import "../misc/bulma/sass/form/_all.sass";
+
+// @import "../misc/bulma/sass/grid/_all.sass";
+@import "../misc/bulma/sass/grid/columns.sass";
+// @import "../misc/bulma/sass/grid/tiles.sass";
+
+// @import "../misc/bulma/sass/helpers/_all.sass";
+@import "../misc/bulma/sass/helpers/color.sass";
+// @import "../misc/bulma/sass/helpers/flexbox.sass";
+// @import "../misc/bulma/sass/helpers/float.sass";
+// @import "../misc/bulma/sass/helpers/other.sass";
+// @import "../misc/bulma/sass/helpers/overflow.sass";
+// @import "../misc/bulma/sass/helpers/position.sass";
+@import "../misc/bulma/sass/helpers/spacing.sass";
+@import "../misc/bulma/sass/helpers/typography.sass";
+// @import "../misc/bulma/sass/helpers/visibility.sass";
+
+// @import "../misc/bulma/sass/layout/_all.sass";
+@import "../misc/bulma/sass/layout/footer.sass";
+// @import "../misc/bulma/sass/layout/hero.sass";
+// @import "../misc/bulma/sass/layout/section.sass";
+
+// @import "../misc/bulma/sass/utilities/_all.sass";
+// @import "../misc/bulma/sass/utilities/animations.sass";
+// @import "../misc/bulma/sass/utilities/controls.sass";
+// @import "../misc/bulma/sass/utilities/derived-variables.sass";
+@import "../misc/bulma/sass/utilities/extends.sass";
+// @import "../misc/bulma/sass/utilities/functions.sass";
+// @import "../misc/bulma/sass/utilities/initial-variables.sass";
+// @import "../misc/bulma/sass/utilities/mixins.sass";

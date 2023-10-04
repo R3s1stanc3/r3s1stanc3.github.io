@@ -1,0 +1,69 @@
+{%- if page %}
+{%- set resource = page %}
+{%- elif section %}
+{%- set resource = section %}
+{%- endif %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ config.title }} - {{ config.description }}</title>
+    <link rel="stylesheet" href="{{ get_url(path = 'blog.css', cachebust = true) }}" />
+    <link rel="stylesheet" href="{{ get_url(path = 'style.css', cachebust = true) }}" />
+    <link rel="alternate" type="application/rss+xml" title="{{ config.title }} &raquo; Feed" href="/{{ config.feed_filename }}" />
+
+    <meta property="og:type" content="website" />
+    {% block extra_head %}{% endblock %}
+  </head>
+
+  <body>
+    <header>
+      <div class="columns is-centered">
+        <div class="column is-6">
+          <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a href="{{ get_url(path='@/_index.md') }}" class="navbar-item">
+                <hgroup>
+                  <h1 class="title is-3">{{ config.title }}</h1>
+                  <h2 class="subtitle is-4">{{ config.description }}</h2>
+                </hgroup>
+              </a>
+            </div>
+            <div class="navbar-menu is-active">
+              <div class="navbar-start">
+                <a class="navbar-item" href="{{ get_url(path='@/pages/about.md') }}">About</a>
+                <a class="navbar-item" href="{{ get_url(path='@/pages/archive.md') }}">Archive</a>
+              </div>
+              <div class="navbar-end">
+                <a class="navbar-item" href="/{{ config.feed_filename }}">
+                  Feed
+                </a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main id="wrapper">
+      <div class="columns is-centered">
+        <div class="column is-6">
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </main>
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <footer class="footer mt-4 p-3">
+          <div class="content is-small has-text-centered">
+            <p>
+            The website content is licensed under <a
+                                                      href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA
+                                                      4.0</a>.
+            </p>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
