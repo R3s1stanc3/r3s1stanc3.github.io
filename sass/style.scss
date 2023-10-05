@@ -83,15 +83,20 @@ $scheme-main-bis: $scheme-main;
     filter: invert(1) hue-rotate(180deg);
   }
 
-  /* pre > code > * { */
-  /*   filter: invert(1) hue-rotate(180deg); */
-  /* } */
+  // pre > code > * {
+  //   filter: invert(1) hue-rotate(180deg);
+  // }
 
   html
-  :not(.tag) > img,
+  img,
   picture,
   video {
     filter: invert(1) hue-rotate(180deg);
+  }
+
+  // images in tags should not be inverted, this might be dirty
+  .tags > img {
+    filter: unset;
   }
 }
 
