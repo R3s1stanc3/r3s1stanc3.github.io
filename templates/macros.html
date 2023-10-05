@@ -12,21 +12,27 @@
   {% if page.description %}
   <h2 class="subtitle">{{ page.description }}</h2>
   {% endif %}
-  <div class="tags">
-    <span class="tag">
-      <img src="{{ get_url(path = 'clock.svg', cachebust = true) }}" />
-      <span>&ensp;{{ page.reading_time }} minute{{ page.reading_time | pluralize }}</span>
-    </span>
+  <div class="columns">
+    <div class="column is-narrow">
+      <div class="tags has-addons">
+        <img class="tag" alt="reading time" src="{{ get_url(path = 'clock.svg', cachebust = true) }}" />
+        <span class="tag">{{ page.reading_time }} minute{{ page.reading_time | pluralize }}</span>
+      </div>
+    </div>
     {% if page.date %}
 
-    <span class="tag">
-      <img src="{{ get_url(path = 'pencil.svg', cachebust = true) }}" />
-      <time datetime="{{ self::rfc3339_date(date=page.date) }}">&ensp;{{ page.date | date(format="%F") }}</time>
-      {% if page.updated %}
-      (Updated: <time datetime="{{ self::rfc3339_date(date=page.updated) }}">{{ page.updated | date(format="%F") }}</time>)
-      {% endif %}
-      {% endif %}
-    </span>
+    <div class="column is-narrow">
+      <div class="tags has-addons">
+        <img class="tag" alt="publication date" src="{{ get_url(path = 'pencil.svg', cachebust = true) }}" />
+        <span class="tag">
+          <time datetime="{{ self::rfc3339_date(date=page.date) }}">{{ page.date | date(format="%F") }}</time>
+          {% if page.updated %}
+          (Updated: <time datetime="{{ self::rfc3339_date(date=page.updated) }}">{{ page.updated | date(format="%F") }}</time>)
+          {% endif %}
+        </span>
+      </div>
+    </div>
+    {% endif %}
   </div>
 </div>
 {% endmacro page_title %}

@@ -36,7 +36,10 @@
               </div>
               <div class="navbar-end">
                 <a class="navbar-item" href="/{{ config.feed_filename }}">
-                  Feed
+                  <div class="tags has-addons">
+                    <img class="tag" alt="feed" src="{{ get_url(path = 'feed.svg', cachebust = true) }}" />
+                    <span class="tag">Feed</span>
+                  </div>
                 </a>
               </div>
             </div>
