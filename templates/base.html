@@ -20,12 +20,12 @@
     <header>
       <div class="columns is-centered">
         <div class="column is-6">
-          <nav class="navbar" role="navigation" aria-label="main navigation">
+          <nav class="navbar" aria-label="main navigation">
             <div class="navbar-brand">
               <a href="{{ get_url(path='@/_index.md') }}" class="navbar-item">
                 <hgroup>
-                  <h1 class="title is-3">{{ config.title }}</h1>
-                  <h2 class="subtitle is-4">{{ config.description }}</h2>
+                  <h1 class="title">{{ config.title }}</h1>
+                  {% if config.description %}<p class="subtitle">{{ config.description }}</p>{% endif %}
                 </hgroup>
               </a>
             </div>

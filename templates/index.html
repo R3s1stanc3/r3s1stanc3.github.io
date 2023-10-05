@@ -5,12 +5,14 @@
 <link rel="canonical" href="{{ config.base_url }}">
 
 <meta property="og:title" content="{{ config.title }}" />
-<meta property="og:description" content="{{ config.description }}" />
 <meta property="og:url" content="{{ config.base_url }}" />
 <meta property="og:site_name" content="{{ config.title }}" />
 <meta property="og:locale" content="en_US" />
-
+{% if config.description %}
+<meta property="og:description" content="{{ config.description }}" />
 <meta name="description" content="{{ config.description }}">
+{% endif %}
+
 {% endblock extra_head %}
 
 {% block content %}
@@ -37,7 +39,7 @@
   </li>
   {% endfor %}
 
-  <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+  <nav class="pagination is-centered" aria-label="pagination">
     {% if paginator.next %}
     <a class="pagination-previous" href="{{ paginator.next }}">Older posts</a>
     {% endif %}
@@ -46,7 +48,7 @@
     {% endif %}
     {% if paginator.number_pagers > 1 %}
     <ul class="pagination-list">
-      Page {{ paginator.current_index }} of {{ paginator.number_pagers }}
+      <li>Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</li>
     </ul>
     {% endif %}
   </nav>
