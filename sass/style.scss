@@ -5,7 +5,7 @@ $scheme-main: #f5f5f5f5;
 $scheme-main-bis: $scheme-main;
 // $link: hsl(204, 86%, 53%);
 // $link: #FA7C91;
-$link: #8A4D76;
+// $link: #8A4D76;
 
 // trial and error and https://gist.github.com/kdzwinel/426a0f76f113643fa285 to find all required modules
 
@@ -24,7 +24,7 @@ $link: #8A4D76;
 // @import "../misc/bulma/sass/components/level.sass";
 // @import "../misc/bulma/sass/components/media.sass";
 // @import "../misc/bulma/sass/components/menu.sass";
-// @import "../misc/bulma/sass/components/message.sass";
+@import "../misc/bulma/sass/components/message.sass";
 // @import "../misc/bulma/sass/components/modal.sass";
 @import "../misc/bulma/sass/components/navbar.sass";
 @import "../misc/bulma/sass/components/pagination.sass";
@@ -76,3 +76,73 @@ $link: #8A4D76;
 // @import "../misc/bulma/sass/utilities/functions.sass";
 // @import "../misc/bulma/sass/utilities/initial-variables.sass";
 // @import "../misc/bulma/sass/utilities/mixins.sass";
+
+// dark mode
+@media (prefers-color-scheme: dark) {
+  html {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+  /* pre > code > * { */
+  /*   filter: invert(1) hue-rotate(180deg); */
+  /* } */
+
+  html
+  :not(.tag) > img,
+  picture,
+  video {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
+
+// content formatting
+#content {
+  text-align: justify;
+  hyphens: auto;
+}
+.page-body {
+  line-height: 2;
+}
+.page-body > * {
+  margin-top: 2em;
+}
+
+// sticky footer
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+#wrapper {
+  flex: 1;
+}
+
+// TODO: wait for pulldown-cmark 0.10
+// currently this is ugly. waiting for changes...
+// https://github.com/raphlinus/pulldown-cmark/pull/654
+// merged but not released
+.footnote-definition {
+  @extend .message;
+  @extend .message-body;
+}
+// TODO, HACK: space between footnote number and content
+.footnote-definition-label {
+  @extend .mr-2;
+}
+// TODO, HACK: no line break between footnote number and content
+.footnote-definition > p {
+  display: inline;
+}
+// .footnote-definition:nth-of-type(1)::before {
+//   @extend .message;
+//   @extend .message-header;
+//   content: 'Footnotes';
+// }
+
+/* make links in code recognisable */
+a > code {
+  text-decoration: underline;
+}
+a:hover > code {
+  @extend .has-background-warning;
+}
