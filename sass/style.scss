@@ -95,7 +95,7 @@ $scheme-main-bis: $scheme-main;
   }
 
   // images in tags should not be inverted, this might be dirty
-  .tags > img {
+  img.tag {
     filter: unset;
   }
 }
