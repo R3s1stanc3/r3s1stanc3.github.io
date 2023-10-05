@@ -19,6 +19,7 @@
 {% if section.title %}
 <h2 class="subtitle">{{ section.title }}</h2>
 {% endif %}
+{% if paginator.pages | length > 0 %}
 <ul>
   {% for page in paginator.pages %}
   <li class="mb-4">
@@ -38,19 +39,18 @@
     </div>
   </li>
   {% endfor %}
-
-  <nav class="pagination is-centered" aria-label="pagination">
-    {% if paginator.next %}
-    <a class="pagination-previous" href="{{ paginator.next }}">Older posts</a>
-    {% endif %}
-    {% if paginator.previous %}
-    <a class="pagination-next" href="{{ paginator.previous }}">Newer posts</a>
-    {% endif %}
-    {% if paginator.number_pagers > 1 %}
-    <ul class="pagination-list">
-      <li>Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</li>
-    </ul>
-    {% endif %}
-  </nav>
 </ul>
+{% endif %}
+
+{% if paginator.number_pagers > 1 %}
+<nav class="pagination is-centered" aria-label="pagination">
+  <div class="navigation-previous">
+  <a class="pagination-previous{% if not paginator.next %} is-invisible{% endif %}" href="{{ paginator.next }}">Older posts</a>
+  </div>
+  <a class="pagination-next{% if not paginator.previous %} is-invisible{% endif %}" href="{{ paginator.previous }}">Newer posts</a>
+  <ul class="pagination-list">
+    <li>Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</li>
+  </ul>
+</nav>
+{% endif %}
 {% endblock page %}
