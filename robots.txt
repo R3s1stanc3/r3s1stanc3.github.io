@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Allow: /
+Sitemap: https://r3s1stanc3.github.io/sitemap.xml
