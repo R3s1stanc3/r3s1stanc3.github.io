@@ -1,5 +1,5 @@
 {
-  description = "Shaker";
+  description = "r3s1stanc3.github.io";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/release-23.05";
@@ -18,8 +18,9 @@
      {
       devShell = pkgs.mkShell {
         nativeBuildInputs = with pkgs; [
+          gnumake
+          nodejs
           zola
-          #minify
         ];
 
         # overwrite git parameters for anonymity
