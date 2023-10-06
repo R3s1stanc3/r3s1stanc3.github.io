@@ -44,9 +44,7 @@
 
 {% if paginator.number_pagers > 1 %}
 <nav class="pagination is-centered" aria-label="pagination">
-  <div class="navigation-previous">
   <a class="pagination-previous{% if not paginator.next %} is-invisible{% endif %}" href="{{ paginator.next }}">Older posts</a>
-  </div>
   <a class="pagination-next{% if not paginator.previous %} is-invisible{% endif %}" href="{{ paginator.previous }}">Newer posts</a>
   <ul class="pagination-list">
     <li>Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</li>
