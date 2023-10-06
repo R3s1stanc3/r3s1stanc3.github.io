@@ -38,7 +38,7 @@ $scheme-main-bis: $scheme-main;
 @import "../misc/bulma/sass/elements/content.sass";
 // @import "../misc/bulma/sass/elements/form.sass";
 // @import "../misc/bulma/sass/elements/icon.sass";
-// @import "../misc/bulma/sass/elements/image.sass";
+@import "../misc/bulma/sass/elements/image.sass";
 // @import "../misc/bulma/sass/elements/notification.sass";
 // @import "../misc/bulma/sass/elements/other.sass";
 // @import "../misc/bulma/sass/elements/progress.sass";
@@ -95,7 +95,8 @@ $scheme-main-bis: $scheme-main;
   }
 
   // images in tags should not be inverted, this might be dirty
-  img.tag {
+  img.tag,
+  .tag > img {
     filter: unset;
   }
 }

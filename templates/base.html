@@ -35,8 +35,10 @@
                 <a class="navbar-item" href="{{ get_url(path='@/pages/archive.md') }}">Archive</a>
               </div>
               <div class="navbar-end">
-                <a class="navbar-item" alt="atom feed" href="/{{ config.feed_filename }}">
-                  <img class="tag" alt="feed icon" src="{{ get_url(path = 'feed.svg', cachebust = true) }}" />
+                <a class="navbar-item" href="/{{ config.feed_filename }}">
+                  <figure class="tag image is-square">
+                    <img alt="feed icon" src="{{ get_url(path = 'feed.svg', cachebust = true) }}" />
+                  </figure>
                 </a>
               </div>
             </div>
