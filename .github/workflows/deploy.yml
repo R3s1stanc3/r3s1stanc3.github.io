@@ -21,7 +21,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       name: Clone repo
-    - uses: cachix/install-nix-action@v23
+    - uses: cachix/install-nix-action@v24
       name: Install nix
     - run: nix develop --command make
       name: Build blog
