@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config.title }}</title>
     <link rel="stylesheet" href="{{ get_url(path = 'style.css', cachebust = true) }}" />
-    <link rel="alternate" type="application/rss+xml" title="{{ config.title }} &raquo; Feed" href="/{{ config.feed_filename }}" />
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
 
     <meta property="og:type" content="website" />
     {% block extra_head %}{% endblock %}
@@ -35,7 +35,7 @@
                 <a class="navbar-item" href="{{ get_url(path='@/pages/archive.md') }}">Archive</a>
               </div>
               <div class="navbar-end">
-                <a class="navbar-item" href="/{{ config.feed_filename }}">
+                <a class="navbar-item" href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
                   <figure class="tag image is-square">
                     <img alt="feed icon" src="{{ get_url(path = 'feed.svg', cachebust = true) }}" />
                   </figure>
