@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "purgecss": "^5.0.0"
+    "purgecss": "^7.0.2"
   }
 }
